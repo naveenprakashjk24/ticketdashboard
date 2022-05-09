@@ -1,18 +1,16 @@
-{% extends 'layouts/base-presentation.html' %}
+{% extends 'layouts/base-presentation.html' %} {% load static%}
 
 {% block title %} Presentation {% endblock title %}
 
 <!-- Specific CSS goes HERE -->
 {% block stylesheets %}{% endblock stylesheets %}
 
-{% block body_class %} index-page {% endblock body_class %}
-
 {% block content %}
   <!-- -------- START HEADER 1 w/ text and image on right ------- -->
   <header>
     <div class="page-header section-height-100">
       <div class="oblique position-absolute top-0 h-100 d-md-block d-none">
-        <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url(/static/assets/img/curved-images/curved11.jpg)"></div>
+        <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url({% static "assets/img/curved-images/curved11.jpg"%})"></div>
       </div>
       <div class="container-fluid">
         <div class="row">

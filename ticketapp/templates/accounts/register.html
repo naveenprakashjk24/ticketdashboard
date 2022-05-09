@@ -1,4 +1,5 @@
 {% extends 'layouts/base-fullscreen.html' %}
+{% load static %}
 
 {% block title %} Sign UP {% endblock title %}
 
@@ -9,7 +10,6 @@
 
 {% block content %}
 
-  {% include "includes/navigation-auth.html" %}
   
   <section>
     <div class="page-header section-height-100">
@@ -74,16 +74,15 @@
           </div>
           <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
             <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center">
-              <img src="/static/assets/img/shapes/pattern-lines.svg" alt="pattern-lines" class="position-absolute opacity-4 start-0">
               <div class="position-relative">
-                <img class="max-width-500 w-100 position-relative z-index-2" src="/static/assets/img/illustrations/chat.png">
+                <img class="max-width-500 w-100 position-relative z-index-2" src={% static "assets/img/illustrations/chat.png"%} >
               </div>
               <h4 class="mt-5 text-white font-weight-bolder">
-                Soft UI Design System
+                PENINSULAR RESEARCH OPERATION
               </h4>
               <p class="text-white">
-                &copy; <a target="_blank" class="text-white" href="https://bit.ly/3fKQZaL" target="_blank">Creative Tim</a> 
-                - Coded by <a class="text-white" target="_blank" href="https://appseed.us" target="_blank">AppSeed</a>.
+                &copy; <a target="_blank" class="text-white"  target="_blank">Request</a> 
+                - Coded by <a class="text-white" target="_blank"  target="_blank">Naveen</a>.
               </p>
             </div>
           </div>
@@ -97,6 +96,6 @@
 <!-- Specific JS goes HERE --> 
 {% block javascripts %}
 
-  <script src="/static/assets/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>
+  <script src={% static "assets/js/soft-design-system.min.js?v=1.0.1"%} type="text/javascript"></script>
 
 {% endblock javascripts %}
