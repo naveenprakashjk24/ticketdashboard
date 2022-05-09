@@ -1,0 +1,149 @@
+{% extends 'layouts/base-presentation.html' %}
+{%load static%}
+{% block content %}
+
+
+<body>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+<div class="content">
+  <div class="container">
+    <h2 class="mb-5">Tickets List</h2>
+    <div class="row text-right py-3 mt-3">
+      {% comment %} <div class="col-12 mx-auto" >
+        <button
+          type="button"
+          class="btn btn-outline-secondary mb-0"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          New Request
+        </button>
+      </div> {% endcomment %}
+    </div>
+    <div class="table-responsive">
+      <table class="table custom-table">
+        <thead>
+          <tr>
+            <th scope="col">Ticket Id</th>
+            <th scope="col">Requester</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Assinged To</th>
+            <th scope="col">Due by</th>
+            <th scope="col">Status</th>
+            <th scope="col">Created Date</th>
+            <th scope="col">Updated Date</th>
+
+          </tr>
+        </thead>
+        <tbody
+        {% for tickets in tickets %}
+          <tr>
+            <td>{{tickets.id}}</td>
+            <td>{{tickets.created_by}}</td>
+            <td>
+              {{tickets.subject}}
+            </td>
+            <td>{{tickets.assigned_to}}</td>
+            <td>
+              {{tickets.due_date}}
+            </td>
+            <td>{{tickets.status}}</td>
+            <td>{{tickets.created_on}}</td>
+            <td>{{tickets.updated_on}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="{% static 'js/core/table.js' %}"></script>
+
+</body>
+
+<div>
+    <div >
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Create Request</h5>
+
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+              <section>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column">
+                      <form role="form" id="contact-form" method="POST" autocomplete="off">
+                        {% csrf_token %}
+                        <div class="card-body">
+                          <div class="row">
+                          </div>
+                          <div class="mb-4">
+                            <label>Subject</label>
+                            <div class="input-group">
+                              <input id ="subject" name ="subject" type="text" class="form-control" placeholder="subject" >
+                            </div>
+                          </div>
+                          <div class="form-group mb-4">
+                            <label>Description</label>
+                            <textarea id="description" name ="description" name="message" class="form-control" id="message" rows="4" placeholder="description"></textarea>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <label>County</label>
+                              <div class="input-group mb-4">
+                                <input id="county" name="county" class="form-control" placeholder="county" aria-label="First Name..." type="text" >
+                              </div>
+                            </div>
+                            <div class="col-md-6 ps-2">
+                              <label>City</label>
+                              <div class="input-group">
+                                <input id="city" name="city" type="text" class="form-control" placeholder="city" aria-label="Last Name..." >
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <label>Area</label>
+                              <div class="input-group mb-4">
+                                <input id="area" name="area" class="form-control" placeholder="area" aria-label="First Name..." type="text" >
+                              </div>
+                            </div>
+                            <div class="col-md-6 ps-2">
+                              <label>Pin code</label>
+                              <div class="input-group">
+                                <input id="pin_code" name="pin_code" type="text" class="form-control" placeholder="pin code" aria-label="Last Name..." >
+                              </div>
+                            </div>
+                          </div>
+                            <div class="col-md-12">
+                              <button type="submit" class="btn bg-gradient-dark w-100">Add Request</button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </section> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

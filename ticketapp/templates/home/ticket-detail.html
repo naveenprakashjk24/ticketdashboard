@@ -1,0 +1,169 @@
+{% extends 'layouts/base-presentation.html' %} {% block content %}
+
+<header>
+</header>
+<br />
+<br />
+<br />
+<br />
+
+<body>
+  <div class="row text-right py-3 mt-3">
+    <div class="col-12 mx-auto" >
+      <button
+        type="button"
+        class="btn btn-outline-secondary mb-0"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        New Request
+      </button>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Subject</th>
+          <th scope="col">Requester Name</th>
+          <th scope="col">Assigned To</th>
+          <th scope="col">DueBy</th>
+          <th scope="col">Status</th>
+          <th scope="col">Created Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</body>
+
+<div class="container py-7">
+  <div class="row mt-3">
+    <div class="col-sm-4 col-6 mx-auto">
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Create Request</h5>
+            </div>
+
+            <form>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Subject</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="name@example.com"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Decribtion</label>
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Email address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="name@example.com"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">County</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="name@example.com"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">City</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="name@example.com"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Area</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="name@example.com"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlFile1">Attachment</label>
+                <input
+                  type="file"
+                  class="form-control-file"
+                  id="exampleFormControlFile1"
+                />
+              </div>
+              <button type="submit" class="btn bg-gradient-primary">
+                Save changes
+              </button>
+            </form>
+            <div class="modal-footer justify-content-between">
+              <button
+                type="button"
+                class="btn bg-gradient-dark text-align-right"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
