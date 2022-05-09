@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-3&csj1-ta-+1=&mh&ev#*+=kgi92hkzg&_pgivur1uakhce8ut
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://ticketrequest.herokuapp.com','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['https://service-dashboard-app.herokuapp.com','localhost','127.0.0.1']
 
 
 # Application definition
