@@ -11,7 +11,7 @@
 # ]
 
 from django.urls import path, re_path
-from .views import login_view, register_user, index, pages,requestpage,logoutUser, settingpage, deleteStatus, changesPage, deletePriority,deleteService,deleteIncident,deleteTechuser,knowladgePage
+from .views import login_view, register_user, index, pages,requestpage,logoutUser, settingpage, deleteStatus, changesPage, deletePriority,deleteService,deleteIncident,deleteTechuser,knowladgePage,requestDetailPage
 
 
 urlpatterns = [
@@ -29,6 +29,7 @@ urlpatterns = [
     path('delete-service/<str:pk>', deleteService, name="delete-service"),
     path('delete-status/<str:pk>', deleteStatus, name="delete-status"),
     path('delete-tuser/<str:pk>', deleteTechuser, name="delete-tuser"),
+    path('ticket-details/<str:pk>', requestDetailPage, name="ticket-details"),
     
     # Matches any html file
     re_path(r'^.*\.*', pages, name='pages'),

@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate, login,logout
 from .forms import LoginForm, SignUpForm
 from .models import RequestTicket, Incident_Category, Tech_User, Notes, Status, Priority,Service_Category
 from django.contrib.auth.models import User
+from django.db.models import Q
 
 @login_required(login_url="/login/")
 def index(request):
@@ -218,3 +219,16 @@ def changesPage(request):
 
 def knowladgePage(request):
     return render(request, 'home/knowladge-page.html')
+
+def requestDetailPage(request, pk):
+  
+    ticket_details = RequestTicket.objects.get(id=pk)
+    notes_detail = ticket_details.notes_set.all()
+    if request.method =="POST":
+        notes = Notes.objects.create(
+            user=request.user,
+            note = request.POST.get('body'),
+            ticket=ticket_details
+        )
+    context = {"ticket_details":ticket_details,"notes_detail":notes_detail}
+    return render (request,'home/ticket-detail.html', context)

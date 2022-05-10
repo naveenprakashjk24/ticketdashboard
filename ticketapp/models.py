@@ -60,7 +60,11 @@ class RequestTicket(models.Model):
     city = models.CharField(max_length=200)
     pin_code = models.CharField(max_length=200)
     
-        
+    @property
+    def ticket_notes():
+        pass
+    
+    
     def __str__(self):
         return self.subject
     
@@ -76,5 +80,5 @@ class Notes(models.Model):
         ordering = ['-updated_on', '-created_on']
         
     def __str__(self):
-        return self.body[0:50]
+        return self.note[0:50]
     

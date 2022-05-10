@@ -1,169 +1,78 @@
-{% extends 'layouts/base-presentation.html' %} {% block content %}
+{% extends 'layouts/base-presentation.html' %} 
+{% load static%}
 
-<header>
-</header>
-<br />
-<br />
-<br />
-<br />
+{% block title %} Details {% endblock title %}
 
-<body>
-  <div class="row text-right py-3 mt-3">
-    <div class="col-12 mx-auto" >
-      <button
-        type="button"
-        class="btn btn-outline-secondary mb-0"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        New Request
-      </button>
-    </div>
-  </div>
-  <div class="container-fluid">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Subject</th>
-          <th scope="col">Requester Name</th>
-          <th scope="col">Assigned To</th>
-          <th scope="col">DueBy</th>
-          <th scope="col">Status</th>
-          <th scope="col">Created Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
 
-      </tbody>
-    </table>
-  </div>
-</body>
 
-<div class="container py-7">
-  <div class="row mt-3">
-    <div class="col-sm-4 col-6 mx-auto">
-      <div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Create Request</h5>
+{% block content %}
+
+  <header>
+  </header>
+  <br>
+  <br>
+  <br>
+  <body>
+    <div class="page-header section-height-85">
+      <div>
+        <img class="position-absolute fixed-top ms-auto w-50 h-100 z-index-0 d-none d-sm-none d-md-block border-radius-section border-top-end-radius-0 border-top-start-radius-0 border-bottom-end-radius-0" src="{% static "assets/img/curved-images/curved-11.jpg"%}">
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 d-flex justify-content-center flex-column">
+            <div class="card d-flex blur justify-content-center p-4 shadow-lg my-sm-0 my-sm-6 mt-8 mb-5">
+                <h3 class="text-gradient text-primary">
+                  {{ticket_details.subject}}
+                  
+                </h3>
+                <span>
+                  <small> by {{ticket_details.created_by}} on {{ticket_details.created_on  }} </small> due date: {{ticket_details.due_date}}
+                </span>
+                <br>
+              </div>
+
+              <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Details</button>
+                  <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Resolution</button>
+                  <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Notes</button>
+                </div>
+              </nav>
+              <div>
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                  <br>
+                  {{ticket_details.description}}
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+{{ticket_details.insident_category}}
+{{ticket_details.service_category}}
+
+
+                </div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                  {% for notes in notes_detail %}
+<span>
+  <p>
+    {{notes.note}}
+  </p>
+  <span>
+                  
+                  {% endfor %}
+                </div>
+              </div>
             </div>
-
-            <form>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">Subject</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleFormControlInput1"
-                  placeholder="name@example.com"
-                />
+              <div>
               </div>
-
-              <div class="form-group">
-                <label for="exampleFormControlTextarea1">Decribtion</label>
-                <textarea
-                  class="form-control"
-                  id="exampleFormControlTextarea1"
-                  rows="3"
-                ></textarea>
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">Email address</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="exampleFormControlInput1"
-                  placeholder="name@example.com"
-                />
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">County</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleFormControlInput1"
-                  placeholder="name@example.com"
-                />
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">City</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleFormControlInput1"
-                  placeholder="name@example.com"
-                />
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">Area</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleFormControlInput1"
-                  placeholder="name@example.com"
-                />
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlFile1">Attachment</label>
-                <input
-                  type="file"
-                  class="form-control-file"
-                  id="exampleFormControlFile1"
-                />
-              </div>
-              <button type="submit" class="btn bg-gradient-primary">
-                Save changes
-              </button>
-            </form>
-            <div class="modal-footer justify-content-between">
-              <button
-                type="button"
-                class="btn bg-gradient-dark text-align-right"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </body>
+
+
 
 {% endblock content %}
+
+
